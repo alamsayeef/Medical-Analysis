@@ -18,6 +18,10 @@ summary(d)
 
 attach(d)
 
+#under the assumption of normality
+# Suppose if we want to check if there is a difference in Diagnosis (i.e. Improved or Expired) for some variable.
+# In simple words we want to see if the CSF levels is different for people who have Improved and those who have expired.
+
 ###########################
 #cytological parameters
 ############################
@@ -62,3 +66,12 @@ summary(ar11)
 
 ar12 = aov(BP_Lac_d1~Diagnosis)
 summary(ar12)
+
+#there are several ways to check for normality in the data
+#1. You can check for density plot for bell shaped curve
+#2. If the scattered plot is densely accumulated at some small region etc.
+
+#If the data is not normally distributed then we would opt for Mann Whitney U test which is done when our data is non-parametric.
+wilcox.test(CSF_Lac_D1_exp,CSF_Lac_D1_imp)
+
+#check for p-value to accept or reject
